@@ -1,16 +1,7 @@
 import { SpaceTrader } from "./modules/api";
+import 'dotenv/config'
 
-let trader = new SpaceTrader("moses");
-
-console.log(trader.get_token());
-
+let trader = new SpaceTrader(process.env.ST_API_TOKEN, process.env.ST_API_URL);
 
 
-// const world = 'world';
-
-// export function hello(who: string = world): string {
-//   return `Hello ${who}! `;
-// }
-
-
-// console.log(hello("moses"));
+trader.get_agent().then((data) => { console.log(data); }); 
